@@ -1,0 +1,11 @@
+Thumbs.db
+.DS_STORE
+
+.idea
+*.iml
+
+*.class
+target
+
+node_modules/
+typings/

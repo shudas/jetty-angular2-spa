@@ -1,0 +1,31 @@
+<!--Show server response-->
+<h3>Server Response: {{serverResponse}}</h3>
+
+<!--Show params b/c why not.-->
+{{diagnostic}}
+<form class="form-horizontal" (ngSubmit)="onLoginSubmit()" #loginForm="ngForm">
+    <!--Bind Bootstrap CSS props to our class variable-->
+    <div class="form-group"
+         [ngClass]="{'has-error': !isValidEmail, 'has-success': isValidEmail}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <!--Two way binding for login params.-->
+            <input type="email" class="form-control" id="email" placeholder="Email" required
+                   [(ngModel)]="params.email" (keyup)="onEmailKey()">
+        </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': !params.password, 'has-success': params.password}">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="password" placeholder="Password" required
+                   [(ngModel)]="params.password" ngControl="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <!--Show submit button once you've entered a password and a valid looking email-->
+            <button type="submit" class="btn btn-default"
+                    [disabled]="!(isValidEmail && loginForm.form.valid)">Sign in</button>
+        </div>
+    </div>
+</form>

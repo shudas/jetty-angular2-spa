@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jetty-angular2-spa</artifactId>
+        <groupId>com.shudas.example.jettyangular2spa</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>webapp-server</artifactId>
+
+    <properties>
+        <jetty.version>9.1.5.v20140505</jetty.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+
+        <!--Our Modules-->
+        <dependency>
+            <groupId>com.shudas.example.jettyangular2spa</groupId>
+            <artifactId>logging</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shudas.example.jettyangular2spa</groupId>
+            <artifactId>health</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shudas.example.jettyangular2spa</groupId>
+            <artifactId>auth</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <executions>
+                    <execution><goals><goal>java</goal></goals></execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.shudas.example.jettyangular2spa.webapp.ServerMain</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <!--Weird way to include the webapp directory instead of contents of webapp directory-->
+                <directory>./src/main</directory>
+                <excludes><exclude>**/java/</exclude></excludes>
+                <includes><include>**/webapp/</include></includes>
+            </resource>
+        </resources>
+    </build>
+</project>

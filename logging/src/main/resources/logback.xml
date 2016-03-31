@@ -1,0 +1,17 @@
+<!--Logback configuration! Default to INFO level b/c external packages have noisy DEBUG level logs-->
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--Our logs will be at the DEBUG level-->
+    <logger name="com.shudas.example.jettyangular2spa" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

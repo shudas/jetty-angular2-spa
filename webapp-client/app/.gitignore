@@ -1,0 +1,3 @@
+# using typescript files so only include original source. none of the generated crap
+*.js
+*.js.map

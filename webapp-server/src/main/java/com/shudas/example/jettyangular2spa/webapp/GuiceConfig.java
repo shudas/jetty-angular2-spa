@@ -51,7 +51,7 @@ public class GuiceConfig extends GuiceServletContextListener {
             bind(MessageBodyWriter.class).to(JacksonJsonProvider.class);
             Map<String, String> initParams = new HashMap<String, String>();
             initParams.put("com.sun.jersey.api.json.POJOMappingFeature", "true");
-            serve("/svc/*").with(GuiceContainer.class, initParams);
+            serve("/api/*").with(GuiceContainer.class, initParams);
         }
     };
 }

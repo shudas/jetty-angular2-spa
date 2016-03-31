@@ -8,8 +8,8 @@ import {Observable}     from 'rxjs/Observable';
 export class LoginService {
     constructor (private http: Http) {}
 
-    private _pingUrl = 'svc/health/ping';
-    private _loginUrl = 'svc/auth/login';  // URL to web api
+    private _pingUrl = 'api/health/ping';
+    private _loginUrl = 'api/auth/login';  // URL to web api
 
     // if you want to ping the server
     getPing() {

@@ -31,8 +31,6 @@ public class HealthResource {
     @Path("/fail")
     public String fail() {
         log.debug("Failing on purpose because that is what this endpoint does.");
-        throw new WebApplicationException(Response.status(Response.Status.SERVICE_UNAVAILABLE)
-                .entity("As indicated by the url, this endpoint fails on purpose")
-                .build());
+        throw new WebApplicationException("This endpoint fails on purpose", Response.Status.SERVICE_UNAVAILABLE);
     }
 }

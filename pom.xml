@@ -17,7 +17,7 @@
 
     <properties>
         <guice.version>3.0</guice.version>
-        <resteasy.version>3.0.16.FINAL</resteasy.version>
+        <resteasy.version>3.0.19.FinalL</resteasy.version>
     </properties>
 
     <dependencies>
